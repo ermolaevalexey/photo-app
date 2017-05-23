@@ -1,7 +1,11 @@
 {
-  "name": "photo-app",
+  "name": "backbone-es6-starter",
   "version": "0.0.1",
-  "description": "Photo parsing app from social newtwork",
+  "description": "Very basic starter boilerplate for modern-way Backbone apps",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ermolaevalexey/backbone-es6-starter"
+  },
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
