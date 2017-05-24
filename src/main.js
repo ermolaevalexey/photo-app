@@ -1,6 +1,8 @@
 
-import Backbone from "backbone";
+"use strict";
 
-console.log("Hello from BB app!");
-//console.log(Backbone);
+import App from "./js/app.js";
 
+const app = new App;
+
+app.init();
