@@ -27,6 +27,8 @@ module.exports = {
 
   plugins,
 
+  devtool: "cheap-module-source-map",
+
   entry: {
     main: [
       "./src/main.js"
@@ -56,6 +58,11 @@ module.exports = {
       {
         test: /\.html$/,
         loader: "raw-loader"
+      },
+
+      {
+        test: /\.hbs$/,
+        loader: "handlebars-loader"
       },
 
       {

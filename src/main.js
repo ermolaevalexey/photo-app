@@ -1,8 +1,18 @@
 
 "use strict";
 
-import App from "./js/app.js";
+import $ from "jquery";
+import Backbone from "backbone";
 
-const app = new App;
+import MainView from "./js/views/main.view.js";
 
-app.init();
+const rootNode = $("main");
+
+$(() => {
+
+  rootNode.append(
+    new MainView().render().$el);
+
+  Backbone.history.start();
+
+});
