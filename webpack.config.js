@@ -4,12 +4,20 @@ const path = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 
 const plugins = [
 
   new ExtractTextPlugin("/public/[name].min.css"),
 
-  new HtmlWebpackPlugin({ template: "./src/templates/index.hbs" }),
+  new HtmlWebpackPlugin({
+    template: "./src/templates/index.hbs",
+    alwaysWriteToDisk: true
+  }),
+
+  new HtmlWebpackHarddiskPlugin({
+    outputPath: path.resolve(__dirname, "server")
+  }),
 
   new webpack.HotModuleReplacementPlugin()
 
@@ -32,31 +40,18 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: path.join(__dirname, "./public"),
+    contentBase: path.join(__dirname, "./server"),
     publicPath: "/public/",
 
     compress: true,
     hot: true,
 
-    port: 9500,
-
-    // unfortunately HtmlWebpackPlugin and WebpackDevServer
-    // do not communicate with each other,
-    // so this is kinda workaround to handle built template
-    // and built static files in a separate-like way
-    proxy: {
-      "/": "http://localhost:9500/public/"
-    }
+    port: 9500
   },
 
   module: {
 
     rules: [
-
-      {
-        test: /\.hbs$/,
-        loader: "handlebars-loader"
-      },
 
       {
         test: /\.html$/,
