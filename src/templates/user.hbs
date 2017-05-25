@@ -1,12 +1,9 @@
 
-<div id="#userContainer">
-  {{#user}}
-    <p>{{ first_name }}</p>
-    <p>{{ last_name }}</p>
-  {{/user}}
+<div id="userContainer">
 
-  {{#error}}
-    <h2 style="color:red">{{ message }}</h2>
-  {{/error}}
+  {{#if user}}
+    <p>{{ user.first_name }}</p>
+    <p>{{ user.last_name }}</p>
+  {{/if}}
 
 </div>

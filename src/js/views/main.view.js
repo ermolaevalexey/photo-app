@@ -1,6 +1,7 @@
 
 import Backbone from "backbone";
 
+import User from "../models/user.js";
 import Photo from "../models/photo.js";
 import PhotoAlbum from "../collections/photoAlbum.js";
 import PhotoAlbumView from "./photoAlbum.view.js";
@@ -12,10 +13,16 @@ export default class MainView extends Backbone.View {
 
   constructor(options) {
     super(options);
+
+    this.user = new User();
+
   }
 
-  get elementNode() {
-    return this.$("#albumList");
+  get elementNodes() {
+    return {
+      albumSection: this.$("#albumSection"),
+      loginSection: this.$("#loginSection")
+    };
   }
 
   get collection() {
@@ -26,10 +33,12 @@ export default class MainView extends Backbone.View {
 
     this.$el.html(MainTemplate());
 
-    new AuthView({ el: this.$("#loginSection") }).render();
+    new AuthView({
+      el: this.elementNodes.loginSection }).render();
 
     new PhotoAlbumView({
-      el: this.elementNode, collection: this.collection
+      el: this.elementNodes.albumSection,
+      collection: this.collection
     }).render();
 
     return this;
