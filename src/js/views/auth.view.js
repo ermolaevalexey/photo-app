@@ -43,6 +43,7 @@ export default class AuthView extends Backbone.View {
 
     if (user) {
       this.user.set({ user });
+      this.trigger("userLoggedIn");
     }
 
   }

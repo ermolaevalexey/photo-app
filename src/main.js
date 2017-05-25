@@ -16,8 +16,10 @@ $(() => {
 
   VK.init({ apiId });
 
+  const mainView = new MainView();
+
   rootNode.append(
-    new MainView().render().$el);
+    mainView.render().$el);
 
   Backbone.history.start();
 

@@ -21,6 +21,8 @@ export default class PhotoAlbumView extends Backbone.View {
     this.collection.each(
       (item) => this.renderItem(item), this);
 
+    return this;
+
   }
 
 
