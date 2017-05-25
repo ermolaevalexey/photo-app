@@ -25,7 +25,7 @@ export default class AuthView extends Backbone.View {
   }
 
   authUser() {
-    return authController.call(this);
+    return authController.call();
   }
 
   render() {
