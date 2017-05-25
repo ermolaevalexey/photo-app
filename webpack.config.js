@@ -72,6 +72,12 @@ module.exports = {
       },
 
       {
+        test: /\.json$/,
+        exclude: /(node_modules)/,
+        loader: "json-loader"
+      },
+
+      {
         test: /\.styl$/,
         loaders: ExtractTextPlugin.extract({
           fallback: "style-loader",
