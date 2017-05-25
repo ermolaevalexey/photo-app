@@ -2,7 +2,7 @@
 import Backbone from "backbone";
 import { bindAll } from "underscore";
 
-import { authController } from "../controllers/authController.js";
+import AuthController from "../controllers/authController.js";
 
 import AuthTemplate from "../../templates/auth.hbs";
 
@@ -12,20 +12,20 @@ export default class AuthView extends Backbone.View {
 
     super(options);
 
-    bindAll(this, "authUser");
+    bindAll(this, "loginUser");
 
   }
 
   get events() {
 
     return {
-      "click #login": "authUser"
+      "click #login": "loginUser"
     };
 
   }
 
-  authUser() {
-    return authController.call();
+  loginUser() {
+    return AuthController.login();
   }
 
   render() {

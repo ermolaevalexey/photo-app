@@ -1,16 +1,31 @@
 
 const { VK } = window;
 
-export function authController() {
+import User from "../models/user.js";
 
-  return VK.Auth.login((response) => {
+export default class AuthController {
 
-    if (response.session) return response.session.user;
+  static login() {
 
-    return {
-      message: new Error("Auth error")
-    };
+    return VK.Auth.login((response) => {
 
-  });
+      if (response.session) {
+
+        const { user } = response.session;
+
+        return new User({ user });
+
+      }
+
+      return {
+        error: {
+          message: new Error("Auth error")
+        }
+      };
+
+    });
+
+  }
 
 }
+
