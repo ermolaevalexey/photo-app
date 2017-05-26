@@ -5,6 +5,7 @@ import config from "../../app.config.json";
 
 const { accessToken } = config;
 
+
 export default class CollectionController {
 
   static getCollection(id) {

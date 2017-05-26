@@ -12,6 +12,7 @@ const { VK } = window;
 
 const rootNode = $("main");
 
+
 $(() => {
 
   VK.init({ apiId });

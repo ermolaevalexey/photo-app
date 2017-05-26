@@ -10,9 +10,11 @@ import PhotoAlbumView from "./photoAlbum.view.js";
 
 import MainTemplate from "../../templates/main.hbs";
 
+
 export default class MainView extends Backbone.View {
 
   constructor(options) {
+
     super(options);
 
     this.authView = new AuthView();

@@ -2,6 +2,7 @@
 import Backbone from "backbone";
 import PhotoTemplate from "../../templates/photo.hbs";
 
+
 export default class PhotoView extends Backbone.View {
 
   constructor(options) {

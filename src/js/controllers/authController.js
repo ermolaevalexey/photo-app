@@ -1,6 +1,7 @@
 
 const { VK, Promise } = window;
 
+
 export default class AuthController {
 
   static login() {
