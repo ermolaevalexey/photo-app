@@ -5,6 +5,7 @@ import $ from "jquery";
 import Backbone from "backbone";
 
 import MainView from "./js/views/main.view.js";
+import Router from "./js/controllers/router.js";
 
 import { apiId } from "./app.config.json";
 
@@ -21,6 +22,8 @@ $(() => {
 
   rootNode.append(
     mainView.render().$el);
+
+  new Router();
 
   Backbone.history.start();
 

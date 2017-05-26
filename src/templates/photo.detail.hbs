@@ -1,0 +1,26 @@
+
+<div id="#photoDetailContainer">
+
+  {{ id }}
+
+  {{#each attachments as |attachment| }}
+
+    {{#if attachment.type == "photo"}}
+
+      <div class="photo__container">
+        {{ attachment.id }}
+        <img src="{{ attachment.photo_604 }}" alt="">
+      </div>
+
+    {{/if}}
+
+  {{/each}}
+
+  <div class="photo__likes">
+
+    Лайки:
+    <span style="color:maroon">{{ likes.count }}</span>
+
+  </div>
+
+</div>

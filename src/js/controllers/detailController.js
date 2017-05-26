@@ -8,15 +8,15 @@ const { accessToken, apiVersion } = config;
 const { VK, Promise } = window;
 
 
-export default class CollectionController {
+export default class DetailController {
 
-  static getCollection(userId) {
+  static getDetail(userId, itemId) {
 
     return new Promise((resolve, reject) => {
 
-      VK.Api.call("photos.getAll",
+      VK.Api.call("wall.getComments",
 
-        { access_token: accessToken, owner_id: userId, scope: "photos", count: 100, v: apiVersion },
+        { access_token: accessToken, owner_id: userId, post_id: itemId, need_likes: 1, v: apiVersion },
 
         (res) => {
 
@@ -24,22 +24,18 @@ export default class CollectionController {
 
             if (isObject(res.response)) {
 
-              const { items } = res.response;
-              console.log(items);
-
-              return resolve(items);
+              return resolve(res.response);
 
             }
 
-            return [];
+            return resolve({});
 
           }
 
           return reject({
             error: {
-              message: new Error("Photos loading failed")
+              message: new Error("Error fetching detail info")
             }
-
           });
 
         });
