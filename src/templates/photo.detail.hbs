@@ -3,23 +3,22 @@
 
   {{ id }}
 
-  {{#each attachments as |attachment| }}
+  <img src="{{ detailImage }}" alt="">
 
-    {{#if attachment.type == "photo"}}
+  <div class="photo__meta">
 
-      <div class="photo__container">
-        {{ attachment.id }}
-        <img src="{{ attachment.photo_604 }}" alt="">
-      </div>
 
+    {{#if likes }}
+      Лайки: <span style="color:maroon">{{ likes.count }}</span>  <br>
+    {{else}}
+      Нет лайков :( <br>
     {{/if}}
 
-  {{/each}}
-
-  <div class="photo__likes">
-
-    Лайки:
-    <span style="color:maroon">{{ likes.count }}</span>
+    {{#if reposts }}
+      Репосты: {{ reposts }} <br>
+    {{else}}
+      Нет репостов :( <br>
+    {{/if}}
 
   </div>
 

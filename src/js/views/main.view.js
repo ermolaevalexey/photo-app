@@ -8,8 +8,9 @@ import CollectionController from "../controllers/collectionController.js";
 import PhotoAlbum from "../collections/photoAlbum.js";
 import PhotoAlbumView from "./photoAlbum.view.js";
 
-import MainTemplate from "../../templates/main.hbs";
+import PhotoDetailView from "./photo.detail.view.js";
 
+import MainTemplate from "../../templates/main.hbs";
 
 export default class MainView extends Backbone.View {
 
@@ -20,7 +21,8 @@ export default class MainView extends Backbone.View {
     this.authView = new AuthView();
 
     this.album = new PhotoAlbum([]);
-    this.albumView = new PhotoAlbumView();
+    this.albumView = new PhotoAlbumView({ main: this });
+    this.detailView = new PhotoDetailView();
 
     this.listenTo(this.authView, "userLoggedIn", this.authorizeCollection);
     this.listenTo(this.album, "add", this.render);
@@ -61,7 +63,6 @@ export default class MainView extends Backbone.View {
     }
 
   }
-
 
   render() {
 

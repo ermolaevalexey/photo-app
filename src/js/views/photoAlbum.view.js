@@ -1,8 +1,7 @@
 
 import Backbone from "backbone";
 
-import PhotoView from "../views/photo.view.js";
-
+import PhotoView from "./photo.view.js";
 
 export default class PhotoAlbumView extends Backbone.View {
 

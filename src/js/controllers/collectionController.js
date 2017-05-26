@@ -1,4 +1,6 @@
 
+import moment from "moment";
+
 import { isObject } from "underscore";
 
 import config from "../../app.config.json";
@@ -25,13 +27,30 @@ export default class CollectionController {
             if (isObject(res.response)) {
 
               const { items } = res.response;
-              console.log(items);
 
-              return resolve(items);
+              return resolve(items.map((item) => {
+
+                return {
+
+                  id: item.id,
+                  date: moment.unix(item.date)
+                    .format("MMMM Do YYYY, h:mm:ss a"),
+
+                  baseImage: item.photo_130,
+                  detailImage: item.photo_604,
+
+                  likes: item.likes.count,
+                  reposts: item.reposts.count,
+
+                  text: item.text
+
+                };
+
+              }));
 
             }
 
-            return [];
+            return resolve([]);
 
           }
 

@@ -2,6 +2,8 @@
 "use strict";
 
 import $ from "jquery";
+import moment from "moment";
+
 import Backbone from "backbone";
 
 import MainView from "./js/views/main.view.js";
@@ -15,6 +17,8 @@ const rootNode = $("main");
 
 
 $(() => {
+
+  moment.locale("ru");
 
   VK.init({ apiId });
 
