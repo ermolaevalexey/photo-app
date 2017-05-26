@@ -16,7 +16,7 @@ export default class CollectionController {
 
       VK.Api.call("photos.getAll",
 
-        { access_token: accessToken, owner_id: userId, scope: "photos", count: 100, v: apiVersion },
+        { access_token: accessToken, owner_id: userId, scope: "photos", count: 100, extended: 1, v: apiVersion },
 
         (res) => {
 
