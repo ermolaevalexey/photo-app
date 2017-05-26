@@ -1,9 +1,11 @@
 
-const { VK, Promise } = window;
+import { isObject } from "underscore";
 
 import config from "../../app.config.json";
 
-const { accessToken } = config;
+const { accessToken, apiVersion } = config;
+
+const { VK, Promise } = window;
 
 
 export default class CollectionController {
@@ -14,14 +16,18 @@ export default class CollectionController {
 
       VK.Api.call("photos.getAll",
 
-        { access_token: accessToken, owner_id: id, scope: "photos", count: 1000 },
+        { access_token: accessToken, owner_id: id, scope: "photos", count: 100, v: apiVersion },
 
         (res) => {
 
           if (res.response) {
 
-            if (Array.isArray(res.response)) {
-              return resolve(res.response.slice(1, -1));
+            if (isObject(res.response)) {
+
+              const { items } = res.response;
+
+              return resolve(items);
+
             }
 
             return [];
