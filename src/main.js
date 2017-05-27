@@ -11,6 +11,8 @@ import Router from "./js/controllers/router.js";
 
 import { apiId } from "./app.config.json";
 
+import "./css/main.styl";
+
 const { VK } = window;
 
 const rootNode = $("main");

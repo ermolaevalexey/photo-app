@@ -1,16 +1,17 @@
 
-<article class="photo__item">
+<article class="album-section__photo">
 
-  <a href="/photos/{{ id }}">
+  <a href="/photos/{{ id }}" class="album-section__photo__base-info">
 
-    {{ id }} <br>
+    <span class="album-section__photo__preview"
+      style="background-image:url({{ baseImage }})"></span>
+
     {{ date }} <br>
 
-    <img src="{{ baseImage }}" alt="">
-
-    <p>{{ text }}</p>
+    {{#if text }}
+      <span>{{ text }}</span>
+    {{/if}}
 
   </a>
-
 
 </article>

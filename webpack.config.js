@@ -8,7 +8,7 @@ const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 
 const plugins = [
 
-  new ExtractTextPlugin("/public/[name].min.css"),
+  new ExtractTextPlugin("[name].min.css"),
 
   new HtmlWebpackPlugin({
     template: "./src/templates/index.hbs",
@@ -93,6 +93,7 @@ module.exports = {
             {
               loader: "postcss-loader",
               options: {
+                sourceMap: true,
                 plugins: () => [ require("autoprefixer") ]
               }
             },

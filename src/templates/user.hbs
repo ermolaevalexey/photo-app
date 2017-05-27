@@ -1,11 +1,23 @@
 
-<div id="userContainer">
+<div id="userContainer" class="user-section__user">
 
   {{#if user}}
-    <p>{{ user.firstName }}</p>
-    <p>{{ user.lastName }}</p>
-    <img src="{{ user.avatar }}" alt="">
-    <p>{{ user.city.title }}</p>
+
+    <div class="user-section__user__avatar">
+
+      <img src="{{ user.avatar }}"
+        alt="{{ user.firstName }} {{ user.lastName }}">
+
+    </div>
+
+    <div class="user-section__user__base-info">
+
+      <p class="user-section__user__base-info__name">{{ user.firstName }} {{ user.lastName }}</p>
+
+      <p class="user-section__user__base-info__city">{{ user.city.title }}</p>
+
+    </div>
+
   {{/if}}
 
 </div>
