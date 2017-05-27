@@ -18,7 +18,7 @@ export default class MainView extends Backbone.View {
 
     super(options);
 
-    this.authView = new AuthView();
+    this.authView = new AuthView({ main: this });
 
     this.album = new PhotoAlbum([]);
     this.albumView = new PhotoAlbumView({ main: this });
@@ -46,13 +46,15 @@ export default class MainView extends Backbone.View {
 
   }
 
-  authorizeCollection() {
+  authorizeCollection(eventUser) {
 
-    const user = this.authView.user;
+    const user = eventUser;
 
     if (user) {
 
-      this.getCollection(user.get("user").id)
+      this.trigger("authorized", user.id);
+
+      this.getCollection(user.id)
 
         .then((coll) => {
 

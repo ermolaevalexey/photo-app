@@ -17,11 +17,11 @@ export default class AuthView extends Backbone.View {
 
     bindAll(this, "loginUser");
 
-    this.user = new User();
+    this.userInfo = new User();
+    this.userView = new UserView({ model: this.userInfo });
 
-    this.userView = new UserView({ model: this.user });
-
-    this.listenTo(this.user, "change", this.render);
+    this.listenTo(options.main, "authorized", this.getUserInfo);
+    this.listenTo(this.userInfo, "change", this.render);
 
   }
 
@@ -42,8 +42,17 @@ export default class AuthView extends Backbone.View {
     const user = await AuthController.login();
 
     if (user) {
-      this.user.set({ user });
-      this.trigger("userLoggedIn");
+      this.trigger("userLoggedIn", user);
+    }
+
+  }
+
+  async getUserInfo(id) {
+
+    const info = await AuthController.getUserInfo(id);
+
+    if (info) {
+      this.userInfo.set({ user: info });
     }
 
   }

@@ -2,8 +2,10 @@
 <div id="userContainer">
 
   {{#if user}}
-    <p>{{ user.first_name }}</p>
-    <p>{{ user.last_name }}</p>
+    <p>{{ user.firstName }}</p>
+    <p>{{ user.lastName }}</p>
+    <img src="{{ user.avatar }}" alt="">
+    <p>{{ user.city.title }}</p>
   {{/if}}
 
 </div>
