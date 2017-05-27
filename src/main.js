@@ -1,6 +1,8 @@
 
 "use strict";
 
+import "./resources.js";
+
 import $ from "jquery";
 import moment from "moment";
 
@@ -10,8 +12,6 @@ import MainView from "./js/views/main.view.js";
 import Router from "./js/controllers/router.js";
 
 import { apiId } from "./app.config.json";
-
-import "./css/main.styl";
 
 const { VK } = window;
 

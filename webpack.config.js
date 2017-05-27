@@ -80,6 +80,14 @@ module.exports = {
       },
 
       {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
+      },
+
+      {
         test: /\.styl$/,
         loaders: ExtractTextPlugin.extract({
           fallback: "style-loader",
