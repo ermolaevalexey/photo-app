@@ -13,14 +13,9 @@ export default class Router extends Backbone.Router {
   get routes() {
 
     return {
-      "photos/:id": "getDetail"
+      "photos/:id": "photos"
     };
 
-  }
-
-  getDetail(query, page) {
-    console.log(query);
-    console.log(page);
   }
 
 }

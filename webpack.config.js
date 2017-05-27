@@ -45,6 +45,8 @@ module.exports = {
     contentBase: path.join(__dirname, "./server"),
     publicPath: "/public/",
 
+    historyApiFallback: true,
+
     compress: true,
     hot: true,
 

@@ -27,8 +27,10 @@ $(() => {
   rootNode.append(
     mainView.render().$el);
 
-  new Router();
+  const router = new Router();
 
-  Backbone.history.start();
+  router.on("route:photos", (id) => console.log(`${id} from main router`));
+
+  Backbone.history.start({ pushState: true });
 
 });
