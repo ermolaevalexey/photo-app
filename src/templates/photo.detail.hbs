@@ -1,27 +1,56 @@
 
-<div id="#photoDetailContainer">
+<div id="#photoDetailContainer" class="detail-section__image">
 
-    {{ id }}
-    {{ detailImage }} <br>
+    <figure class="detail-image">
 
-    <img src="{{ detailImage }}" alt="">
+      <div class="detail-image__image-container">
 
-    <div class="photo__meta">
+        <img src="{{ detailImage }}" alt="Фото №{{ id }}">
 
-      {{ date }} <br>
+      </div>
 
-      {{#if likes }}
-        Лайки: <span style="color:maroon">{{ likes }}</span>  <br>
-      {{else}}
-        Нет лайков :( <br>
-      {{/if}}
+      <figcaption class="detail-image__meta">
 
-      {{#if reposts }}
-        Репосты: {{ reposts }} <br>
-      {{else}}
-        Нет репостов :( <br>
-      {{/if}}
+        <p class="detail-image__meta__id">
+          Фото №{{ id }}
+        </p>
 
-    </div>
+        <p class="detail-image__meta__date">
+          {{ date }}
+        </p>
+
+        <div class="detail-image__meta__social-activity">
+
+          <div class="social-activity-item">
+            <span class="social-activity-item__key">Нравится:</span>
+
+            <span class="social-activity-item__value">
+              {{#if likes }}
+                {{ likes }}
+              {{else}}
+                пока никому не понравилось
+              {{/if}}
+            </span>
+
+          </div>
+
+          <div class="social-activity-item">
+            <span class="social-activity-item__key">Поделилилсь:</span>
+
+            <span class="social-activity-item__value">
+              {{#if reposts }}
+                {{ reposts }}
+              {{else}}
+                пока никто не поделился
+              {{/if}}
+            </span>
+
+          </div>
+
+        </div>
+
+      </figcaption>
+
+    </figure>
 
 </div>
