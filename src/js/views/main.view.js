@@ -1,4 +1,6 @@
 
+import $ from "jquery";
+
 import Backbone from "backbone";
 
 import AuthView from "./auth.view.js";
@@ -82,8 +84,10 @@ export default class MainView extends Backbone.View {
 
     this.albumView.render();
 
-    reduceHeight(this.$el, this.elementNodes.albumSection,
-      this.elementNodes.loginSection);
+    $(window).on("resize", () => {
+      reduceHeight(this.$el, this.elementNodes.albumSection,
+        this.elementNodes.loginSection);
+    }).resize();
 
     return this;
 
