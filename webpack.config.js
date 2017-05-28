@@ -108,6 +108,14 @@ module.exports = {
             "stylus-loader"
           ]
         })
+      },
+
+      {
+        test: /\.(woff|svg|webmanifest)$/,
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]"
+        }
       }
 
     ]

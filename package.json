@@ -1,7 +1,7 @@
 {
-  "name": "backbone-es6-starter",
+  "name": "photo-app",
   "version": "0.0.1",
-  "description": "Very basic starter boilerplate for modern-way Backbone apps",
+  "description": "Simple api photo parser app",
   "repository": {
     "type": "git",
     "url": "git@github.com:ermolaevalexey/backbone-es6-starter.git"
@@ -28,6 +28,7 @@
     "css-loader": "^0.28.3",
     "eslint": "^3.19.0",
     "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
     "handlebars": "^4.0.10",
     "handlebars-loader": "^1.5.0",
     "html-webpack-harddisk-plugin": "^0.1.0",
