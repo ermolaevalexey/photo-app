@@ -12,7 +12,7 @@
       <figcaption class="detail-image__meta">
 
         <p class="detail-image__meta__id">
-          Фото №{{ id }}
+          Фото #{{ id }},
         </p>
 
         <p class="detail-image__meta__date">
@@ -24,8 +24,9 @@
           <div class="social-activity-item">
             <span class="social-activity-item__key">Нравится:</span>
 
-            <span class="social-activity-item__value">
-              {{#if likes }}
+            <span
+              class="social-activity-item__value">
+              {{#if likes}}
                 {{ likes }}
               {{else}}
                 пока никому не понравилось
