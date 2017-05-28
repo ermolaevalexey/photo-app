@@ -12,6 +12,8 @@ import PhotoDetailView from "./photo.detail.view.js";
 
 import MainTemplate from "../../templates/main.hbs";
 
+import { reduceHeight } from "../dom";
+
 export default class MainView extends Backbone.View {
 
   constructor(options) {
@@ -79,6 +81,9 @@ export default class MainView extends Backbone.View {
     this.albumView.collection = this.album;
 
     this.albumView.render();
+
+    reduceHeight(this.$el, this.elementNodes.albumSection,
+      this.elementNodes.loginSection);
 
     return this;
 
