@@ -24,11 +24,12 @@ export default class PhotoAlbumView extends Backbone.View {
 
   delegateSelected(item) {
 
-    this.detailView.model.set(item);
+    this.detailView.model.set(item.attributes);
 
     this.detailView.$el = this.elementNodes.detailSection;
 
     this.detailView.render();
+
   }
 
   renderItem(item) {

@@ -1,17 +1,17 @@
 
 <div id="#photoDetailContainer">
 
-  {{#if photo }}
+    {{ id }}
+    {{ detailImage }} <br>
 
-    {{ photo.id }}
-
-    <img src="{{ photo.detailImage }}" alt="">
+    <img src="{{ detailImage }}" alt="">
 
     <div class="photo__meta">
 
-      {{ photo.date }} <br>
+      {{ date }} <br>
+
       {{#if likes }}
-        Лайки: <span style="color:maroon">{{ photo.likes }}</span>  <br>
+        Лайки: <span style="color:maroon">{{ likes }}</span>  <br>
       {{else}}
         Нет лайков :( <br>
       {{/if}}
@@ -23,7 +23,5 @@
       {{/if}}
 
     </div>
-
-  {{/if}}
 
 </div>
