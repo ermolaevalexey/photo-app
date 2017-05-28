@@ -6,10 +6,16 @@
     <span class="album-section__photo__preview"
       style="background-image:url({{ baseImage }})"></span>
 
-    {{ date }} <br>
+    <span class="album-section__photo__date">
+      {{ date }}
+    </span>
 
     {{#if text }}
-      <span>{{ text }}</span>
+
+      <span class="album-section__photo__text">
+        {{ text }}
+      </span>
+
     {{/if}}
 
   </a>

@@ -1,9 +1,52 @@
 
 .album-section {
 
-  overflow-x: hidden;
-  overflow-y: auto;
-
   max-height: 100%;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  div:last-of-type {
+
+    & ^[0]__photo  {
+      padding-bottom: 2em;
+    }
+
+  }
+
+  &__photo {
+
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #ccc;
+
+    &__preview {
+
+      width: 70px;
+      height: 70px;
+
+      display: inline-flex;
+
+      margin-right: 10px;
+
+      background-position: 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+    }
+
+    &__base-info {
+
+      color: #8a8a8a;
+      display: inline-flex;
+
+      text-decoration: none;
+
+    }
+
+  }
 
 }
