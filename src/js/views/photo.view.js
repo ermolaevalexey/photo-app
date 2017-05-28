@@ -24,6 +24,9 @@ export default class PhotoView extends Backbone.View {
   passToDetail(e) {
 
     e.preventDefault();
+
+    // triggering an event and passing the model to
+    // render it into detail view
     this.trigger("passedItem", this.model);
 
   }

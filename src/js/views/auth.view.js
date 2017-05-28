@@ -42,6 +42,7 @@ export default class AuthView extends Backbone.View {
     const user = await AuthController.login();
 
     if (user) {
+      // passing an event that informs that we got user
       this.trigger("userLoggedIn", user);
     }
 

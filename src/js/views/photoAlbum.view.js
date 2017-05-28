@@ -22,6 +22,7 @@ export default class PhotoAlbumView extends Backbone.View {
     };
   }
 
+  // render detail view
   delegateSelected(item) {
 
     this.detailView.model.set(item.attributes);
@@ -35,6 +36,9 @@ export default class PhotoAlbumView extends Backbone.View {
   renderItem(item) {
 
     const itemView = new PhotoView({ model: item });
+
+    // listening an event from item view,
+    // receiving a model from it
     itemView.listenTo(itemView, "passedItem", this.delegateSelected.bind(this));
 
     this.$el.append(itemView.render().$el);

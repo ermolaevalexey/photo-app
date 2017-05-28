@@ -31,10 +31,10 @@ export default class MainView extends Backbone.View {
 
     this.detailView = new PhotoDetailView({ model: new Photo()});
 
+    // listening when user logged in
     this.listenTo(this.authView, "userLoggedIn", this.authorizeCollection);
-    this.listenTo(this.album, "add", this.render);
 
-    this.listenTo(this.albumView, "selectedItem", this.setDetailView);
+    this.listenTo(this.album, "add", this.render);
 
   }
 
@@ -61,8 +61,11 @@ export default class MainView extends Backbone.View {
 
     if (user) {
 
+      // passing an event to get extended user info
+      // to display it
       this.trigger("authorized", user.id);
 
+      // user authorized - we get collection
       this.getCollection(user.id)
 
         .then((coll) => {
@@ -72,14 +75,6 @@ export default class MainView extends Backbone.View {
         })
         .catch((error) => console.error(error));
     }
-
-  }
-
-  setDetailView(photoItem) {
-    console.log("photo:", photoItem);
-    this.detaiView.model = photoItem.photo;
-
-    this.render();
 
   }
 
