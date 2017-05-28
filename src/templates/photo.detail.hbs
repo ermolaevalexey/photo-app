@@ -1,25 +1,29 @@
 
 <div id="#photoDetailContainer">
 
-  {{ id }}
+  {{#if photo }}
 
-  <img src="{{ detailImage }}" alt="">
+    {{ photo.id }}
 
-  <div class="photo__meta">
+    <img src="{{ photo.detailImage }}" alt="">
 
+    <div class="photo__meta">
 
-    {{#if likes }}
-      Лайки: <span style="color:maroon">{{ likes.count }}</span>  <br>
-    {{else}}
-      Нет лайков :( <br>
-    {{/if}}
+      {{ photo.date }} <br>
+      {{#if likes }}
+        Лайки: <span style="color:maroon">{{ photo.likes }}</span>  <br>
+      {{else}}
+        Нет лайков :( <br>
+      {{/if}}
 
-    {{#if reposts }}
-      Репосты: {{ reposts }} <br>
-    {{else}}
-      Нет репостов :( <br>
-    {{/if}}
+      {{#if reposts }}
+        Репосты: {{ reposts }} <br>
+      {{else}}
+        Нет репостов :( <br>
+      {{/if}}
 
-  </div>
+    </div>
+
+  {{/if}}
 
 </div>

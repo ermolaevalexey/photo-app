@@ -7,6 +7,7 @@ import AuthView from "./auth.view.js";
 
 import CollectionController from "../controllers/collectionController.js";
 
+import Photo from "../models/photo.js";
 import PhotoAlbum from "../collections/photoAlbum.js";
 import PhotoAlbumView from "./photoAlbum.view.js";
 
@@ -25,11 +26,15 @@ export default class MainView extends Backbone.View {
     this.authView = new AuthView({ main: this });
 
     this.album = new PhotoAlbum([]);
+
     this.albumView = new PhotoAlbumView({ main: this });
-    this.detailView = new PhotoDetailView();
+
+    this.detailView = new PhotoDetailView({ model: new Photo()});
 
     this.listenTo(this.authView, "userLoggedIn", this.authorizeCollection);
     this.listenTo(this.album, "add", this.render);
+
+    this.listenTo(this.albumView, "selectedItem", this.setDetailView);
 
   }
 
@@ -70,6 +75,14 @@ export default class MainView extends Backbone.View {
 
   }
 
+  setDetailView(photoItem) {
+    console.log("photo:", photoItem);
+    this.detaiView.model = photoItem.photo;
+
+    this.render();
+
+  }
+
   render() {
 
     this.$el.html(MainTemplate());
@@ -83,6 +96,8 @@ export default class MainView extends Backbone.View {
     this.albumView.collection = this.album;
 
     this.albumView.render();
+
+    this.detailView.render();
 
     $(window).on("resize", () => {
       reduceHeight(this.$el, this.elementNodes.albumSection,

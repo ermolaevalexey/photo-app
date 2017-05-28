@@ -13,6 +13,21 @@ export default class PhotoView extends Backbone.View {
 
   }
 
+  get events() {
+
+    return {
+      "click .album-section__photo__base-info" : "passToDetail"
+    };
+
+  }
+
+  passToDetail(e) {
+
+    e.preventDefault();
+    this.trigger("passedItem", { photo: this.model });
+
+  }
+
   render() {
 
     this.$el.html(
