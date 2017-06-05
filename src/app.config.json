@@ -1,6 +1,6 @@
 {
   "apiId": 6046275,
   "apiVersion": "5.64",
-  "accessToken": "90fd382a86b4c99801ee125a81b1bdd73b9d552db46c0018d876414a80e04cf7dfab9efe4c6bdd93c57bb",
+  "accessToken": "9469e57a9469e57a9469e57a729435a739994699469e57acd4f1d4558f897a8dc7894ba",
   "accessTokenUrl": "https://oauth.vk.com/access_token?client_id=6046275&client_secret=tM3jX5sAoCxOGuTJElGn&redirect_uri=http://localhost:9500/vk-auth&code=96034d5af3795481bb"
 }

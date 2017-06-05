@@ -19,6 +19,14 @@
           {{ date }}
         </p>
 
+
+
+        {{#if text }}
+          <p class="detail-image__meta__text">
+            {{ text }}
+          </p>
+        {{/if}}
+
         <div class="detail-image__meta__social-activity">
 
           <div class="social-activity-item">
@@ -45,6 +53,7 @@
                 пока никто не поделился
               {{/if}}
             </span>
+
 
           </div>
 
